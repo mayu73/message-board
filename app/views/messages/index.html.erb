@@ -5,21 +5,22 @@
 
 <div class="panel-body">
 <% @messages.each do|message| %>
-   <span class="label label-info"><%= message.name %></span>
-   <%= message.body %>
-   <br>
+<span class="label label-info"><%= message.name %></span>
+<%= message.body %>
+<br>
 <% end %>
 </div>
 </div>
 
-<%= form_for @message, html: {class: 'form-inline'} do |f| %>
-　<div class="form-group form-group-sm">
-    名前：
-    <%= f.text_area:name, class:"form-control" %>
-　</div>
-　<div class="form-group form-group-sm">
-　　内容：
-  　<%= f.text_area:body, class:"form-control" %>
-　</div>
-  <%= f.submit class:"btn btn-sm btn-primary"%>
+<%= form_for(@message) do |f| %>
+<div class="form-group">
+ <label>名前：</label>
+ <%= f.text_field :name, class:"form-control" %>
+</div>
+
+<div class="form-group">
+ <label>内容：</label>
+ <%= f.text_area :body, class:"form-control"%>
+</div>
+ <%= f.submit class: "btn btn-sm btn-primary" %>
 <% end %>
